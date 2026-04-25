@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Referral</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-3">👥 Employee Referral System</h2>
+    <a href="/referral/insert/" class="btn btn-success mb-3">Add Employee</a>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th><th>CNIC</th><th>Cell</th>
+                <th>Current Job</th><th>For Job</th>
+                <th>Skills</th><th>Department</th>
+                <th>Experience</th><th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in employees %}
+            <tr>
+                <td>{{e.employee_name}}</td>
+                <td>{{e.cnic}}</td>
+                <td>{{e.cell}}</td>
+                <td>{{e.job_title_working}}</td>
+                <td>{{e.for_job}}</td>
+                <td>{{e.skill_set}}</td>
+                <td>{{e.department}}</td>
+                <td>{{e.experience_years}} years</td>
+                <td>
+                    <a href="/referral/update/?id={{e.id}}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/referral/delete/?id={{e.id}}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
